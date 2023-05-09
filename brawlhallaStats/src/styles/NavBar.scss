@@ -1,0 +1,187 @@
+@import "../styles/variables.scss";
+
+.showMenu {
+  .BurgerLinks {
+    transition: 1s ease-out;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    height: calc(100% - 75px);
+    align-items: center;
+    background-color: rgb(55, 59, 62);
+    visibility: visible;
+    @include tablet {
+      flex-direction: row;
+      height: 75px;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      background-color: inherit;
+    }
+    .Burger_Link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      font-size: 20px;
+      position: relative;
+      color: lightgrey;
+      text-decoration: none;
+      font-family: "Orbitron", sans-serif;
+      @include tablet {
+        height: 6vh;
+        padding: 0;
+        color: #444444;
+      }
+    }
+    .Burger_Link::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      border-radius: 6px;
+      background-image: linear-gradient(
+        to right top,
+        #ff31a6,
+        #f84bbc,
+        #ef5fd0,
+        #e471e1,
+        #d881f0,
+        #b499ff,
+        #94abff,
+        #80b9ff,
+        #5fcdff,
+        #44dfff,
+        #47f0ff,
+        #68fff5
+      );
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+      @include tablet {
+        background: #444444;
+      }
+    }
+    .Burger_Link:hover::before {
+      transform-origin: left;
+      transform: scaleX(1);
+      color: white;
+    }
+  }
+}
+
+.navBar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  height: 75px;
+
+  background-image: linear-gradient(
+    to right top,
+    #5f6870,
+    #576980,
+    #56698f,
+    #5e669c,
+    #6f60a5,
+    #6c61aa,
+    #6963af,
+    #6564b4,
+    #426db4,
+    #1973ae,
+    #0077a3,
+    #007995
+  );
+  gap: 10%;
+  .logo {
+    padding: 0.5rem 0 0 1rem;
+  }
+
+  .hiddenMenu {
+    display: none;
+  }
+  .Burger_Link {
+    display: none;
+  }
+  .BurgerButton {
+    width: 30px;
+    height: 60px;
+    background: none;
+    border: none;
+    margin: 0 2rem 0 0;
+    cursor: pointer;
+    outline: none;
+    @include tablet {
+      display: none;
+    }
+    .BurgerCross,
+    .BurgerCross::before,
+    .BurgerCross::after {
+      display: block;
+      width: 40px;
+      height: 5px;
+      position: relative;
+      border-radius: 5px;
+      background-color: white;
+      border: none;
+      margin-right: 2rem;
+      transition: 0.5s;
+      @include tablet {
+        display: none;
+      }
+    }
+    .BurgerCross::before,
+    .BurgerCross::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+    .BurgerCross::before {
+      transform: rotate(45deg);
+    }
+    .BurgerCross::after {
+      transform: rotate(-45deg);
+    }
+    .BurgerCross {
+      background: transparent;
+    }
+
+    .Burger_Bar,
+    .Burger_Bar::before,
+    .Burger_Bar::after {
+      display: block;
+      width: 40px;
+      height: 5px;
+      position: relative;
+      border-radius: 5px;
+      background-color: white;
+      border: none;
+      margin-right: 2rem;
+      transition: 0.5s;
+      @include tablet {
+        display: none;
+      }
+    }
+
+    .Burger_Bar::before,
+    .Burger_Bar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+    .Burger_Bar::before {
+      transform: translateY(-12px);
+    }
+    .Burger_Bar::after {
+      transform: translateY(12px);
+    }
+  }
+}

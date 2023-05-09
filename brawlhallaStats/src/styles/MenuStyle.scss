@@ -1,0 +1,110 @@
+@import "./Variables.scss";
+
+.ShowMenu {
+  .burgerButton {
+    .BurgerLinks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: fixed;
+      right: -100vw;
+      bottom: 0;
+      height: calc(100% - 79px);
+      padding: 2rem;
+      align-items: center;
+      background-color: #ffffff;
+      visibility: visible;
+
+      .Burger_link {
+        display: block;
+        padding: 1.5rem;
+        font-size: 5vw;
+        position: relative;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  z-index: 1;
+
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  height: 75px;
+
+  .burger {
+    .BurgerLinks {
+      right: 0;
+      width: 100vw;
+      visibility: visible;
+      .Burger_Link {
+        display: block;
+        padding: 0.5rem;
+        font-size: 5vw;
+        color: red;
+        margin: 1.5rem;
+      }
+      .Burger_Link:hover {
+        color: purple;
+      }
+      .Burger_Link::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #be0000;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+      .Burger_Link:hover::before {
+        transform: scaleX(1);
+      }
+    }
+
+    .BurgerButton {
+      width: 50px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      color: inherit;
+      position: relative;
+      top: 1rem;
+      right: 1rem;
+      .BurgerButton:hover {
+        cursor: pointer;
+      }
+      .burger_Bar,
+      .burger_Bar::before,
+      .burger_Bar::after {
+        display: block;
+        width: 40px;
+        height: 3px;
+        position: relative;
+        border-radius: 3px;
+      }
+      .burger_Bar::before,
+      .burger_Bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .burger_Bar::before {
+        transform: translateY(-12px);
+      }
+      .burger_Bar::after {
+        transform: translateY(12px);
+      }
+    }
+  }
+}
